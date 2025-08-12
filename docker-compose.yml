@@ -1,0 +1,14 @@
+services:
+  h5ai:
+    image: ghcr.io/ddrimus/h5ai-docker:latest
+    container_name: h5ai
+    restart: unless-stopped
+    environment:
+      TZ: "Europe/Rome"
+      PUID: "1000"
+      PGID: "1000"
+    volumes:
+      - "$PWD/config:/config"
+      - "$PWD/data:/h5ai"
+    ports:
+      - "80:80"
